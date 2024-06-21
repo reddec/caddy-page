@@ -21,6 +21,11 @@ function closeSearch() {
     });
 }
 
+function toggleSearch() {
+    if (!searchVisible) openSearch();
+    else closeSearch();
+}
+
 function setHint(value) {
     const elem = document.getElementById("hint");
     if (!value) {
@@ -53,7 +58,7 @@ function updateFilter() {
 
     const filtered = search(query);
     const visited = {};
-    
+
     // show matched
     filtered.forEach((def) => {
         if (!first) {

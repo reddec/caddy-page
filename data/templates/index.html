@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>{{or $config.title "Dashboard"}}</h1>
-        <small onclick="openSearch()">type <kbd>/</kbd> to open search</small>
+        <small onclick="toggleSearch()">type <kbd>/</kbd> to open search</small>
     </header>
     <div id="search">
         <input type="text" id="searchText" placeholder="search..." tabindex="0" />
