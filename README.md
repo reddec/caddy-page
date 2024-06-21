@@ -19,7 +19,7 @@ There are dozens (maybe hundreds) of them, this is just yet another one.
 
 ## Deploy
 
-    docker run --rm -p 8080:80 -v $(pwd)/config.json:ro ghcr.io/reddec/caddy-page
+    docker run --rm -p 8080:80 -v $(pwd)/config.json:/usr/share/caddy/config/config.json:ro ghcr.io/reddec/caddy-page
 
 
 __Demo mode__
@@ -117,7 +117,7 @@ example.com {
 and run it as
 
 
-    docker run --rm -p 80:80 -p 443:443 -v $(pwd)/Caddyfile:/etc/caddy/Caddyfile:ro -v $(pwd)/data:/data -v $(pwd)/config.json:ro ghcr.io/reddec/caddy-page
+    docker run --rm -p 80:80 -p 443:443 -v $(pwd)/Caddyfile:/etc/caddy/Caddyfile:ro -v $(pwd)/data:/data -v $(pwd)/config.json:/usr/share/caddy/config/config.json:ro ghcr.io/reddec/caddy-page
 
 
 - `$(pwd)/data:/data` needed for TLS cache
