@@ -1,0 +1,36 @@
+<html>
+<head>
+    {{$config := (readFile "config.json") | fromJson}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/index.css" />
+    <script src="static/js/index.js" defer></script>
+    <title>{{or $config.title "Dashboard"}}</title>
+</head>
+
+<body>
+    <header>
+        <h1>{{or $config.title "Dashboard"}}</h1>
+        <small onclick="openSearch()">type <kbd>/</kbd> to open search</small>
+    </header>
+    <div id="search">
+        <input type="text" id="searchText" placeholder="search..." tabindex="0" />
+        <small id="hint"></small>
+    </div>
+    <main>
+        {{- range $index, $link := $config.links}}
+        <a href="{{$link.href}}" id="link{{$index}}" target="_blank">{{or $link.name $link.href}}</a>
+        {{- end}}
+    </main>
+    <footer>
+        <small>made by <a href="https://github.com/reddec" target="_blank">reddec</a></small>
+    </footer>
+    <script>
+        const index = [
+        {{range $index, $link := $config.links}}
+        {"term": {{(print ($link.href) ($link.tags | join "" ) ($link.name))  | lower | trim | toJson}}, "id": "link{{$index}}", "config": {{$link | toJson}}},
+        {{end }}
+        ]
+    </script>
+</body>
+
+</html>

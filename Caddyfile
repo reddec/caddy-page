@@ -1,0 +1,16 @@
+:80 {
+        root * /usr/share/caddy/
+
+        handle_path /static/* {
+            root * /usr/share/caddy/static
+            file_server
+        }
+
+        handle / {
+            root * /usr/share/caddy/templates
+            file_server
+            templates {
+                root /usr/share/caddy/config
+            }
+        }
+}

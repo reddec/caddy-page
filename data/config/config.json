@@ -1,0 +1,68 @@
+{
+    "title": "Start page",
+    "links": [
+        {
+            "name": "Google",
+            "href": "https://google.com",
+            "tags": [
+                "search",
+                "find"
+            ]
+        },
+        {
+            "name": "DuckDuckGo",
+            "href": "https://ddg.gg",
+            "tags": [
+                "search",
+                "find",
+                "free",
+                "ddg",
+                "privacy"
+            ]
+        },
+        {
+            "name": "GitHub",
+            "href": "https://github.com",
+            "tags": [
+                "git"
+            ]
+        },
+        {
+            "name": "Codeberg",
+            "href": "https://codeberg.org/",
+            "tags": [
+                "git",
+                "open-source",
+                "free"
+            ]
+        },
+        {
+            "name": "Caddy",
+            "href": "https://caddyserver.com",
+            "tags": [
+                "server",
+                "open-source",
+                "free"
+            ]
+        },
+        {
+            "name": "Node-Red",
+            "href": "https://nodered.org",
+            "tags": [
+                "automation",
+                "open-source"
+            ]
+        },
+        {
+            "name": "Keycloak",
+            "href": "https://www.keycloak.org",
+            "tags": [
+                "authorization",
+                "idp",
+                "oidc",
+                "oauth",
+                "open-source"
+            ]
+        }
+    ]
+}
