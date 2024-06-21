@@ -39,6 +39,7 @@ function setHint(value) {
 function openPredicted() {
     if (!predicted) return;
     window.open(predicted.href, '_blank').focus();
+    closeSearch();
 }
 
 function search(query) {
