@@ -23,20 +23,22 @@
     </div>
     {{- end}}
     <main>
-        {{- range $index, $link := $config.links}}
-        {{- if or (not $tag)  ($link.tags | has $tag)}}
         <div>
-            <a href="{{$link.href}}" id="link{{$index}}" class="link" target="_blank">
-                {{or $link.name $link.href}}
-            </a>
-            {{- with $link.tags }}
-            <a class="hashtag" href="?tag={{index $link.tags 0}}">#{{index $link.tags 0}}</a>
-            {{- else}}
-            &nbsp;
+            {{- range $index, $link := $config.links}}
+            {{- if or (not $tag) ($link.tags | has $tag)}}
+            <div class="pill">
+                <a href="{{$link.href}}" id="link{{$index}}" class="link" target="_blank">
+                    {{or $link.name $link.href}}
+                </a>
+                {{- with $link.tags }}
+                <a class="hashtag" href="?tag={{index $link.tags 0}}">#{{index $link.tags 0}}</a>
+                {{- else}}
+                &nbsp;
+                {{- end}}
+            </div>
+            {{- end}}
             {{- end}}
         </div>
-        {{- end}}
-        {{- end}}
     </main>
     <footer>
         <small>made by <a href="https://github.com/reddec" target="_blank">reddec</a></small>
