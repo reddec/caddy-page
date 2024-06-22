@@ -1,6 +1,7 @@
 <html>
 <head>
-    {{$config := (readFile "config.json") | fromJson}}
+    {{- $config := (readFile "config.json") | fromJson}}
+    {{- $tag := .Req.URL.Query.Get "tag"}}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/index.css" />
     <script src="static/js/index.js" defer></script>
@@ -16,9 +17,25 @@
         <input type="text" id="searchText" placeholder="search... refine results by space" tabindex="0" />
         <small id="hint"></small>
     </div>
+    {{- with $tag }}
+    <div class="tagfilter">
+        <b>#{{$tag}}</b> tag: <a href="?">reset</a>
+    </div>
+    {{- end}}
     <main>
         {{- range $index, $link := $config.links}}
-        <a href="{{$link.href}}" id="link{{$index}}" target="_blank">{{or $link.name $link.href}}</a>
+        {{- if or (not $tag)  ($link.tags | has $tag)}}
+        <div>
+            <a href="{{$link.href}}" id="link{{$index}}" class="link" target="_blank">
+                {{or $link.name $link.href}}
+            </a>
+            {{- with $link.tags }}
+            <a class="hashtag" href="?tag={{index $link.tags 0}}">#{{index $link.tags 0}}</a>
+            {{- else}}
+            &nbsp;
+            {{- end}}
+        </div>
+        {{- end}}
         {{- end}}
     </main>
     <footer>
@@ -26,9 +43,11 @@
     </footer>
     <script>
         const index = [
-        {{range $index, $link := $config.links}}
+        {{- range $index, $link := $config.links}}
+        {{- if or (not $tag)  ($link.tags | has $tag)}}
         {"term": {{(print ($link.href) ($link.tags | join "" ) ($link.name))  | lower | trim | toJson}}, "id": "link{{$index}}", "config": {{$link | toJson}}},
-        {{end }}
+        {{- end }}
+        {{- end }}
         ]
     </script>
 </body>

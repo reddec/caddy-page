@@ -82,7 +82,7 @@ Each link:
 
 - `name` (string): visible name of entry
 - `href` (string): remote link
-- `tags` (array of string): **optional** tags which can be used during search
+- `tags` (array of string): **optional** tags which can be used during search. First tag will be shown under pill.
 
 
 **Deep dive**

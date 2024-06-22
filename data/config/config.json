@@ -37,6 +37,10 @@
             ]
         },
         {
+            "name": "Example",
+            "href": "https://example.com"
+        },
+        {
             "name": "Caddy",
             "href": "https://caddyserver.com",
             "tags": [
