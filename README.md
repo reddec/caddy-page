@@ -4,6 +4,8 @@ Caddy Page is a minimalist start page designed for simplicity and speed. This pr
 
 There are dozens (maybe hundreds) of them, this is just yet another one.
 
+See demo site (please be gently!) [https://demo-page.reddec.net](https://demo-page.reddec.net)
+
 ![image](https://github.com/reddec/caddy-page/assets/6597086/3b3090a1-608c-4088-ba44-3b49b462c097)
 
 ![Screencastfrom2024-06-2122-39-06-ezgif com-video-to-gif-converter](https://github.com/reddec/caddy-page/assets/6597086/513c1c27-024a-455b-9d80-ee7bded69011)
