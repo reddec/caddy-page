@@ -26,8 +26,8 @@
         <div>
             {{- range $index, $link := $config.links}}
             {{- if or (not $tag) ($link.tags | has $tag)}}
-            <div class="pill">
-                <a href="{{$link.href}}" id="link{{$index}}" class="link" target="_blank">
+            <div class="pill" id="link{{$index}}">
+                <a href="{{$link.href}}" class="link" target="_blank">
                     {{or $link.name $link.href}}
                 </a>
                 {{- with $link.tags }}
